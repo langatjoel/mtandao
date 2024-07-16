@@ -1,8 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MoviePage from './MoviePage';
+import MovieDetails from './MovieDetails';
+import ReviewPage from './ReviewPage';
 
-function App() {
-  return <h1>Project Client</h1>;
-}
+const App = () => {
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" exact component={MoviePage} />
+                <Route path="/movies/:movieId" exact component={MovieDetails} />
+                <Route path="/movies/:movieId/review" exact component={ReviewPage} />
+            </Switch>
+        </Router>
+    );
+};
 
 export default App;
